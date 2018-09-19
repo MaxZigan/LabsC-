@@ -45,7 +45,8 @@ namespace WindowsFormsApp1
 
 
         public void procedure1(int a) {
-            if (Convert.ToInt32(textBox1.Text) == 0 || i == 1)
+            //Convert.ToInt32(textBox1.Text) == 0
+            if (textBox1.Text == "0" || i == 1)
             {
                 textBox1.Text = Convert.ToString(a);
                 i = 0;
@@ -142,6 +143,35 @@ namespace WindowsFormsApp1
 
         private void BMinus_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "-";
+                i = 0;
+            }
+            else
+            {
+                if (result == 0)
+                {
+                    result = Convert.ToDouble(textBox1.Text);
+                    textBox1.Text = Convert.ToString(0);
+                }
+                else
+                {
+                    if (result != 0 && b == 0)
+                    {
+                        b = Convert.ToDouble(textBox1.Text);
+                        prZnak(znak);
+                        b = 0;
+                        textBox1.Text = Convert.ToString(result);
+                        i = 1;
+                    }
+                }
+             znak = '-';
+            }
+        }
+
+        private void BX_Click(object sender, EventArgs e)
+        {
             if (result == 0)
             {
                 result = Convert.ToDouble(textBox1.Text);
@@ -158,22 +188,7 @@ namespace WindowsFormsApp1
                     i = 1;
                 }
             }
-            znak = '-';
-        }
-
-        private void BX_Click(object sender, EventArgs e)
-        {
-            if (result == 0)
-            {
-                result = Convert.ToDouble(textBox1.Text);
-                textBox1.Text = Convert.ToString(0);
-            }
-            else
-            {
-                result *= Convert.ToDouble(textBox1.Text);
-                textBox1.Text = Convert.ToString(result);
-                i = 0;
-            }
+            znak = '*';
         }
 
         private void Bd_Click(object sender, EventArgs e)
@@ -185,10 +200,34 @@ namespace WindowsFormsApp1
             }
             else
             {
-                result /= Convert.ToDouble(textBox1.Text);
-                textBox1.Text = Convert.ToString(result);
-                i = 0;
+                if (result != 0 && b == 0)
+                {
+                    b = Convert.ToDouble(textBox1.Text);
+                    prZnak(znak);
+                    b = 0;
+                    textBox1.Text = Convert.ToString(result);
+                    i = 1;
+                }
             }
+            znak = '/';
+        }
+
+        private void Bzap_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBox1.Text) == 0 || i == 1)
+            {
+                Console.WriteLine("Error404");
+            }
+            else
+            {
+                textBox1.Text += Convert.ToString(",");
+            }
+        }
+
+        private void BCE_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Convert.ToString(0);
+            result = 0;
         }
     }
 }

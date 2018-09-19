@@ -89,6 +89,7 @@
             this.Bzap.TabIndex = 19;
             this.Bzap.Text = ".";
             this.Bzap.UseVisualStyleBackColor = false;
+            this.Bzap.Click += new System.EventHandler(this.Bzap_Click);
             // 
             // BRavno
             // 
@@ -124,6 +125,7 @@
             this.BCE.TabIndex = 16;
             this.BCE.Text = "CE";
             this.BCE.UseVisualStyleBackColor = false;
+            this.BCE.Click += new System.EventHandler(this.BCE_Click);
             // 
             // BC
             // 
